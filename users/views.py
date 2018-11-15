@@ -1,6 +1,7 @@
 
 from django.shortcuts import render
 import requests
+import datetime
 
 def home(request):
     url = 'https://us-central1-prueba-resuelve.cloudfunctions.net/users/2017-01-01/2017-04-01'
@@ -26,5 +27,5 @@ def home(request):
     #         context[k]=v
             #print(k,':',v)
 
-    template_name = 'home.html'
+    template_name = 'home_users.html'
     return render(request, template_name, context)
