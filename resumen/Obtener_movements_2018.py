@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import requests
 import json
@@ -19,7 +21,7 @@ for m in _meses:
         #Cachamos el error por si no encuentra alguna fecha con los parametrso realizados
         try:
 
-            url = f'https://us-central1-prueba-resuelve.cloudfunctions.net/movements/{_año}-1-1/{_año}-{m}-{d}/'
+            url = f'https://us-central1-prueba-resuelve.cloudfunctions.net/movements/{_año}-{str(m).zfill(2)}-{str(d).zfill(2)}/{_año}-{str(m).zfill(2)}-{str(d).zfill(2)}/'
             response_m = requests.get(url)
             request_text_m = response_m.text
             data_m = json.loads(request_text_m)
@@ -28,4 +30,4 @@ for m in _meses:
             #Mostrara las listas vacias si no contiene nada ese dia []
 
         except ValueError:
-            print('Ops!. Las fechas no son validas...')
+            print('Ups!. Las fechas no son validas...')

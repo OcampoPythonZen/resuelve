@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import requests
 import json
@@ -19,7 +21,7 @@ for m in _meses:
         #Cachamos el erro por si no encuentra alguna fecha con los parametrso realizados
         try:
 
-            url = f'https://us-central1-prueba-resuelve.cloudfunctions.net/users/{_año}-1-1/{_año}-{m}-{d}/'
+            url = f'https://us-central1-prueba-resuelve.cloudfunctions.net/users/{_año}-{str(m).zfill(2)}-{str(d).zfill(2)}/{_año}-{str(m).zfill(2)}-{str(d).zfill(2)}/'
             response = requests.get(url)
             request_text = response.text
             data = json.loads(request_text)
@@ -28,4 +30,4 @@ for m in _meses:
 
 
         except ValueError:
-            print('Ops!. Algo fallo en las fechas buscadas...')
+            print('Ups!. Algo fallo en las fechas buscadas...')
