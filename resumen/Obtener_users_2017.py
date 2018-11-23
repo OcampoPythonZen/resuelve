@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 import requests
 import json
 
@@ -27,6 +26,17 @@ for m in _meses:
             data = json.loads(request_text)
             data_serialized = json.dumps(data, indent = 4)
             print(data_serialized)
+
+            # {
+            #     "nombre": "Frances",
+            #     "apellido": "Eichmann",
+            #     "segundo_nombre": "",
+            #     "segundo_apellido": "Stark",
+            #     "uid": "812eea02-e741-4b01-9ff6-763d510db524", -- buscar la relacion para sacar la suma de sus movimientos
+            #     "email": "Pasquale44@hotmail.com",
+            #     "active": false,
+            #     "created_at": "2017-01-04T13:42:53.778Z"
+            # }
 
 
         except ValueError:
